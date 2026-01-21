@@ -1,0 +1,95 @@
+.hero {
+  position: relative;
+  height: 90vh; // Take up most of the screen
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  overflow: hidden;
+  
+  // The Cyber Grid Background
+  background-image: 
+    linear-gradient(var(--border-color) 1px, transparent 1px),
+    linear-gradient(90deg, var(--border-color) 1px, transparent 1px);
+  background-size: 50px 50px; // Size of the grid squares
+  background-position: center center;
+
+  // Fade the grid out at the edges so it looks subtle
+  mask-image: radial-gradient(circle at center, black 40%, transparent 100%);
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2; // Sit on top of the glow
+  max-width: 800px;
+  padding: 0 20px;
+
+  .badge {
+    display: inline-block;
+    padding: 6px 12px;
+    background: rgba(37, 99, 235, 0.1); // Transparent Blue
+    color: var(--primary);
+    border: 1px solid var(--primary);
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    margin-bottom: 20px;
+  }
+
+  h1 {
+    font-size: 3.5rem;
+    line-height: 1.2;
+    font-weight: 800;
+    margin-bottom: 20px;
+    color: var(--text-main);
+
+    .highlight {
+      background: linear-gradient(90deg, #3b82f6, #06b6d4); // Blue to Cyan gradient
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+  }
+
+  p {
+    font-size: 1.2rem;
+    color: var(--text-muted);
+    margin-bottom: 40px;
+    line-height: 1.6;
+  }
+}
+
+.cta-group {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+
+  .btn-lg {
+    padding: 12px 30px;
+    font-size: 1rem;
+  }
+
+  .btn-outline {
+    background: transparent;
+    border: 1px solid var(--border-color);
+    color: var(--text-main);
+
+    &:hover {
+      border-color: var(--text-main);
+      background: rgba(255,255,255,0.05);
+    }
+  }
+}
+
+// The Background Glow Ball
+.hero-glow {
+  position: absolute;
+  width: 600px;
+  height: 600px;
+  background: var(--primary);
+  filter: blur(150px); // Massive blur to make it look like light
+  opacity: 0.15; // Subtle
+  z-index: 1;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}

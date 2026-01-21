@@ -1,0 +1,75 @@
+.features-section {
+  padding: 80px 20px;
+  background-color: var(--bg-color);
+  position: relative;
+}
+
+.section-header {
+  text-align: center;
+  max-width: 600px;
+  margin: 0 auto 60px;
+
+  h2 {
+    font-size: 2.5rem;
+    color: var(--text-main);
+    margin-bottom: 10px;
+  }
+
+  p {
+    color: var(--text-muted);
+    font-size: 1.1rem;
+  }
+}
+
+.features-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); // Responsive Grid
+  gap: 30px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.feature-card {
+  // GLASS EFFECT
+  background: rgba(30, 41, 59, 0.4); // Semi-transparent dark blue
+  backdrop-filter: blur(12px);       // The Frost
+  border: 1px solid rgba(255, 255, 255, 0.1); // Thin white border
+  padding: 40px 30px;
+  border-radius: 16px;
+  transition: transform 0.3s ease, border-color 0.3s ease;
+  
+  // Hover Animation
+  &:hover {
+    transform: translateY(-5px); // Float up
+    border-color: var(--primary); // Glow blue on hover
+    
+    .icon-wrapper {
+      background: var(--primary);
+      color: white;
+    }
+  }
+
+  .icon-wrapper {
+    width: 60px;
+    height: 60px;
+    background: rgba(37, 99, 235, 0.1); // Faint Blue
+    color: var(--primary);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+    transition: all 0.3s ease;
+  }
+
+  h3 {
+    font-size: 1.5rem;
+    color: var(--text-main);
+    margin-bottom: 10px;
+  }
+
+  p {
+    color: var(--text-muted);
+    line-height: 1.6;
+  }
+}

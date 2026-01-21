@@ -1,0 +1,40 @@
+// src/styles/abstracts/_variables.scss
+
+// 1. Define the Palette (The raw colors)
+$color-primary-blue: #2563eb; // A nice vibrant Tech Blue
+$color-primary-hover: #1d4ed8;
+
+// Dark Mode Palette (Default)
+$dark-bg: #0f172a;       // Very dark blue/slate (better than pure black)
+$dark-surface: #1e293b;  // Slightly lighter for cards/sidebar
+$dark-text-main: #f8fafc;
+$dark-text-muted: #94a3b8;
+$dark-border: #334155;
+
+// Light Mode Palette (The Toggle)
+$light-bg: #f8fafc;
+$light-surface: #ffffff;
+$light-text-main: #0f172a;
+$light-text-muted: #64748b;
+$light-border: #e2e8f0;
+
+// 2. Map to Semantic Names (This is the magic)
+:root {
+  // Default is Dark Mode
+  --bg-color: #{$dark-bg};
+  --surface-color: #{$dark-surface};
+  --text-main: #{$dark-text-main};
+  --text-muted: #{$dark-text-muted};
+  --border-color: #{$dark-border};
+  --primary: #{$color-primary-blue};
+  --primary-hover: #{$color-primary-hover};
+}
+
+// When data-theme="light", we overwrite the variables
+[data-theme='light'] {
+  --bg-color: #{$light-bg};
+  --surface-color: #{$light-surface};
+  --text-main: #{$light-text-main};
+  --text-muted: #{$light-text-muted};
+  --border-color: #{$light-border};
+}

@@ -1,0 +1,75 @@
+// src/styles/components/_responsive.scss
+
+// MOBILE PHONES (Portrait)
+@media (max-width: 768px) {
+  
+  // 1. Fix the Navbar
+  .navbar .container {
+    padding: 0 15px;
+    
+    // Hide the middle links on mobile to save space
+    .nav-links {
+      display: none; 
+    }
+  }
+
+  // 2. Fix the Hero Text
+  .hero-content {
+    h1 {
+      font-size: 2.2rem; // Shrink from 3.5rem
+    }
+    p {
+      font-size: 1rem;
+    }
+  }
+
+  // 3. Fix the Dashboard Layout (Crucial)
+  .dashboard-layout {
+    grid-template-columns: 60px 1fr; // Shrink sidebar to 60px (Icons only)
+  }
+
+  .sidebar {
+    width: 60px;
+    padding: 20px 10px; // Reduce padding
+    align-items: center;
+
+    .sidebar-header {
+      h2, .badge { display: none; } // Hide Logo Text & Badge
+      margin-bottom: 20px;
+      
+      // Show a small logo icon instead
+      &::after {
+        content: 'U'; // Simple "U" logo
+        font-weight: bold;
+        color: var(--primary);
+        font-size: 1.5rem;
+      }
+    }
+
+    .nav-item {
+      justify-content: center;
+      padding: 10px;
+      
+      span { display: none; } // Hide the text "Overview", "Chat" etc.
+    }
+
+    .logout-btn {
+      justify-content: center;
+      span { display: none; }
+    }
+  }
+  
+  .dashboard-main {
+    padding: 15px; // Less padding on mobile
+  }
+
+  // 4. Fix the Chat Window
+  .chat-container {
+    height: calc(100vh - 140px); // Adjust for mobile browser bars
+  }
+  
+  // 5. Admin Page Stacking
+  .admin-grid {
+    grid-template-columns: 1fr; // Stack them
+  }
+}

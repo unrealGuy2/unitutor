@@ -1,0 +1,83 @@
+// src/styles/components/_navbar.scss
+
+.navbar {
+  width: 100%;
+  height: 70px;
+  background-color: var(--surface-color); // Uses our dark theme variable
+  border-bottom: 1px solid var(--border-color);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  padding: 0 20px;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--text-main);
+  
+  .highlight {
+    color: var(--primary); // The Blue Accent
+  }
+}
+
+.nav-links {
+  display: flex;
+  gap: 30px;
+  list-style: none;
+
+  a {
+    color: var(--text-muted);
+    font-size: 0.95rem;
+    transition: color 0.2s;
+
+    &:hover {
+      color: var(--primary);
+    }
+  }
+}
+
+.auth-buttons {
+  display: flex;
+  gap: 15px;
+  align-items: center;
+}
+
+// Button Utilities (We can move these to a global button file later)
+.btn {
+  padding: 8px 16px;
+  border-radius: 6px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.btn-text {
+  color: var(--text-main);
+  background: transparent;
+
+  &:hover {
+    color: var(--primary);
+  }
+}
+
+.btn-primary {
+  background-color: var(--primary);
+  color: white;
+
+  &:hover {
+    background-color: var(--primary-hover);
+  }
+}
