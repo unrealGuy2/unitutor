@@ -25,126 +25,98 @@
     .cta-group {
       flex-direction: column;
       width: 100%;
-      
-      .btn { width: 100%; } // Full width buttons
+      .btn { width: 100%; }
     }
   }
 
   // ==============================
-  // 3. FEATURES SECTION (The Fix)
+  // 3. FEATURES SECTION (The Big Fix)
   // ==============================
+  
+  // This is the container that holds the text AND the grid.
+  // We force it to stack vertically.
+  .features-section .container {
+    display: flex !important;
+    flex-direction: column !important; // Stack top-to-bottom
+    align-items: center !important;
+  }
+
+  // Style the "Why Use Unitutor?" text block
+  .section-header {
+    text-align: center !important;
+    margin-bottom: 30px !important; // Add space below the text
+    width: 100% !important;
+    
+    h2 {
+      margin-bottom: 10px !important;
+    }
+  }
+
+  // Style the grid of cards
   .features-grid {
-    // FORCE 1 COLUMN. This fixes the squishing.
-    grid-template-columns: 1fr !important; 
-    gap: 30px !important;
+    display: grid !important;
+    grid-template-columns: 1fr !important; // FORCE 1 column
+    gap: 20px !important;
+    width: 100% !important;
   }
 
   .feature-card {
-    padding: 25px !important; // Slightly smaller padding
+    padding: 25px !important;
   }
 
   // ==============================
-  // 4. CLASSROOM (The Fix)
+  // 4. CLASSROOM
   // ==============================
-  
-  // Make tabs scrollable horizontally
   .subject-tabs {
     display: flex;
-    flex-wrap: nowrap !important; // Don't wrap to next line
-    overflow-x: auto; // Allow scrolling
-    -webkit-overflow-scrolling: touch; // Smooth scroll on iPhone
-    padding-bottom: 10px; // Space for scrollbar
+    flex-wrap: nowrap !important;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    padding-bottom: 10px;
     gap: 10px;
-
-    // Hide scrollbar but keep functionality
     &::-webkit-scrollbar { display: none; } 
 
     button {
-      flex-shrink: 0; // Prevent buttons from squishing
+      flex-shrink: 0;
       font-size: 0.9rem;
       padding: 8px 16px;
     }
   }
 
-  .materials-grid {
-    .material-card {
-      flex-direction: column; // Stack content vertically
-      align-items: flex-start; // Align to left
-      gap: 15px;
+  .materials-grid .material-card {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 15px;
 
-      .file-info {
-        width: 100%;
-        
-        h4 { 
-          font-size: 0.95rem; 
-          line-height: 1.4;
-        }
-      }
-
-      // Move download button to the right
-      .download-btn {
-        align-self: flex-end; 
-        margin-top: -10px;
-      }
-    }
+    .file-info { width: 100%; }
+    .download-btn { align-self: flex-end; margin-top: -10px; }
   }
 
   // ==============================
   // 5. DASHBOARD LAYOUT
   // ==============================
   .dashboard-layout {
-    grid-template-columns: 60px 1fr !important; // Shrink sidebar
+    grid-template-columns: 60px 1fr !important;
   }
 
   .sidebar {
     width: 60px !important;
     padding: 20px 5px !important;
-
-    // Hide text, show only icons
-    .sidebar-header h2, 
-    .sidebar-header .badge,
-    .nav-item span,
-    .logout-btn span { 
-      display: none !important; 
-    }
-
+    .sidebar-header h2, .sidebar-header .badge, .nav-item span, .logout-btn span { display: none !important; }
     .sidebar-header {
       margin-bottom: 20px;
-      display: flex;
       justify-content: center;
-      
-      &::after {
-        content: 'U';
-        font-weight: 800;
-        font-size: 1.5rem;
-        color: var(--primary);
-      }
+      &::after { content: 'U'; font-weight: 800; font-size: 1.5rem; color: var(--primary); }
     }
-
-    .nav-item, .logout-btn {
-      justify-content: center !important;
-      padding: 10px 0 !important;
-    }
+    .nav-item, .logout-btn { justify-content: center !important; padding: 10px 0 !important; }
   }
   
-  .dashboard-main {
-    padding: 15px !important;
-    width: 100% !important;
-  }
-
-  // Stats Grid Stack
-  .stats-grid {
-    grid-template-columns: 1fr !important; 
-  }
+  .dashboard-main { padding: 15px !important; width: 100% !important; }
+  .stats-grid { grid-template-columns: 1fr !important; }
 
   // ==============================
-  // 6. ADMIN & CHAT FIXES
+  // 6. ADMIN & CHAT
   // ==============================
-  .admin-grid {
-    grid-template-columns: 1fr !important;
-  }
-  
-  .chat-container {
-    height: calc(100vh - 100px) !important;
-  }
+  .admin-grid { grid-template-columns: 1fr !important; }
+  .chat-container { height: calc(100vh - 100px) !important; }
 }
