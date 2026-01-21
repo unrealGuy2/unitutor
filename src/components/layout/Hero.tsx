@@ -9,8 +9,9 @@ export default function Hero() {
           Master the <span className="highlight">JAMB Syllabus</span> <br />
           with AI-Powered Tutoring.
         </h1>
+        {/* UPDATED PARAGRAPH BELOW */}
         <p>
-          Don't just read. Interact. Access thousands of past questions and get instant explanations from an AI Tutor trained on the official UNILORIN standard.
+          Don't just read. Interact. Access thousands of past questions and get instant explanations from an AI Tutor trained on the official JAMB standard.
         </p>
         <div className="cta-group">
           <Link href="/register" className="btn btn-primary btn-lg">
