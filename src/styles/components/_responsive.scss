@@ -1,75 +1,150 @@
 // src/styles/components/_responsive.scss
 
-// MOBILE PHONES (Portrait)
+// MOBILE PHONES (Portrait) - Max Width 768px
 @media (max-width: 768px) {
   
-  // 1. Fix the Navbar
+  // ==============================
+  // 1. GLOBAL LAYOUT FIXES
+  // ==============================
+  .container {
+    padding: 0 20px !important;
+    width: 100% !important;
+  }
+
+  // ==============================
+  // 2. NAVBAR & HERO
+  // ==============================
   .navbar .container {
-    padding: 0 15px;
-    
-    // Hide the middle links on mobile to save space
-    .nav-links {
-      display: none; 
-    }
+    .nav-links { display: none !important; } // Hide Menu Links
   }
 
-  // 2. Fix the Hero Text
   .hero-content {
-    h1 {
-      font-size: 2.2rem; // Shrink from 3.5rem
-    }
-    p {
-      font-size: 1rem;
+    h1 { font-size: 2.2rem !important; }
+    p { font-size: 1rem !important; }
+    
+    .cta-group {
+      flex-direction: column;
+      width: 100%;
+      
+      .btn { width: 100%; } // Full width buttons
     }
   }
 
-  // 3. Fix the Dashboard Layout (Crucial)
+  // ==============================
+  // 3. FEATURES SECTION (The Fix)
+  // ==============================
+  .features-grid {
+    // FORCE 1 COLUMN. This fixes the squishing.
+    grid-template-columns: 1fr !important; 
+    gap: 30px !important;
+  }
+
+  .feature-card {
+    padding: 25px !important; // Slightly smaller padding
+  }
+
+  // ==============================
+  // 4. CLASSROOM (The Fix)
+  // ==============================
+  
+  // Make tabs scrollable horizontally
+  .subject-tabs {
+    display: flex;
+    flex-wrap: nowrap !important; // Don't wrap to next line
+    overflow-x: auto; // Allow scrolling
+    -webkit-overflow-scrolling: touch; // Smooth scroll on iPhone
+    padding-bottom: 10px; // Space for scrollbar
+    gap: 10px;
+
+    // Hide scrollbar but keep functionality
+    &::-webkit-scrollbar { display: none; } 
+
+    button {
+      flex-shrink: 0; // Prevent buttons from squishing
+      font-size: 0.9rem;
+      padding: 8px 16px;
+    }
+  }
+
+  .materials-grid {
+    .material-card {
+      flex-direction: column; // Stack content vertically
+      align-items: flex-start; // Align to left
+      gap: 15px;
+
+      .file-info {
+        width: 100%;
+        
+        h4 { 
+          font-size: 0.95rem; 
+          line-height: 1.4;
+        }
+      }
+
+      // Move download button to the right
+      .download-btn {
+        align-self: flex-end; 
+        margin-top: -10px;
+      }
+    }
+  }
+
+  // ==============================
+  // 5. DASHBOARD LAYOUT
+  // ==============================
   .dashboard-layout {
-    grid-template-columns: 60px 1fr; // Shrink sidebar to 60px (Icons only)
+    grid-template-columns: 60px 1fr !important; // Shrink sidebar
   }
 
   .sidebar {
-    width: 60px;
-    padding: 20px 10px; // Reduce padding
-    align-items: center;
+    width: 60px !important;
+    padding: 20px 5px !important;
+
+    // Hide text, show only icons
+    .sidebar-header h2, 
+    .sidebar-header .badge,
+    .nav-item span,
+    .logout-btn span { 
+      display: none !important; 
+    }
 
     .sidebar-header {
-      h2, .badge { display: none; } // Hide Logo Text & Badge
       margin-bottom: 20px;
+      display: flex;
+      justify-content: center;
       
-      // Show a small logo icon instead
       &::after {
-        content: 'U'; // Simple "U" logo
-        font-weight: bold;
-        color: var(--primary);
+        content: 'U';
+        font-weight: 800;
         font-size: 1.5rem;
+        color: var(--primary);
       }
     }
 
-    .nav-item {
-      justify-content: center;
-      padding: 10px;
-      
-      span { display: none; } // Hide the text "Overview", "Chat" etc.
-    }
-
-    .logout-btn {
-      justify-content: center;
-      span { display: none; }
+    .nav-item, .logout-btn {
+      justify-content: center !important;
+      padding: 10px 0 !important;
     }
   }
   
   .dashboard-main {
-    padding: 15px; // Less padding on mobile
+    padding: 15px !important;
+    width: 100% !important;
   }
 
-  // 4. Fix the Chat Window
-  .chat-container {
-    height: calc(100vh - 140px); // Adjust for mobile browser bars
+  // Stats Grid Stack
+  .stats-grid {
+    grid-template-columns: 1fr !important; 
+  }
+
+  // ==============================
+  // 6. ADMIN & CHAT FIXES
+  // ==============================
+  .admin-grid {
+    grid-template-columns: 1fr !important;
   }
   
-  // 5. Admin Page Stacking
-  .admin-grid {
-    grid-template-columns: 1fr; // Stack them
+  .chat-container {
+    height: calc(100vh - 100px) !important;
   }
 }
